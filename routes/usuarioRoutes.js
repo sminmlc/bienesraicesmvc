@@ -1,5 +1,5 @@
 import express  from "express";
-import { formularioLogin, formularioRegistro } from "../controllers/usuarioController.js";
+import { formularioLogin, formularioRegistro, formularioRecordarContrasena, registrar, confirmar } from "../controllers/usuarioController.js";
 const router = express.Router();
 
 //Routing
@@ -13,5 +13,8 @@ router.post('/', function(req, res){
 
 router.get('/login',formularioLogin);
 router.get('/registro',formularioRegistro);
+router.post('/registro',registrar);
+router.get('/recordar-contrasena',formularioRecordarContrasena);
+router.get('/confirmar/:token',confirmar);
 
 export default router;

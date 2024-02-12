@@ -12,12 +12,9 @@ block contenido
                     div 
                         label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="email") Tu Email
                         input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Tu Email" type="emal" name="email")
-                    div 
-                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="password") Tu Password
-                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Tu Password" type="password" name="password")
 
                     div.flex.items-enter.justify-between
                         a.text-gray-500.text-xs(href="/auth/registro") ¿No tienes cuenta? Registrate
-                        a.text-gray-500.text-xs(href="/auth/recordar-contrasena") Recordar contraseña
+                        a.text-gray-500.text-xs(href="/auth/login") ¿Ya tienes cuenta? Inicia Sesión
 
-                    input(class="w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-3 cursor-pointer" type="submit" value="Iniciar sesión")
+                    input(class="w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-3 cursor-pointer" type="submit" value="Enviar instrucciones")
