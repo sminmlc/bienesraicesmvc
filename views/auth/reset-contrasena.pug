@@ -12,14 +12,14 @@ block contenido
 
         div.mt-8.mx-auto.max-w-md
             div.bg-white.py-8.px-4.shadow 
-                form.space-y-5(method="POST" action="/auth/recordar-contrasena" noValidate)
+                form.space-y-5(method="POST" noValidate)
                     input(type="hidden" name="_csrf" value=csrfToken)
                     div 
-                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="email") Tu Email
-                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Tu Email" type="emal" name="email")
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="contrasena") Escribe tu nueva contraseña
+                        input#contrasena.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Nueva contraseña" type="text" name="contrasena")
 
                     div.flex.items-enter.justify-between
                         a.text-gray-500.text-xs(href="/auth/registro") ¿No tienes cuenta? Registrate
                         a.text-gray-500.text-xs(href="/auth/login") ¿Ya tienes cuenta? Inicia Sesión
 
-                    input(class="w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-3 cursor-pointer" type="submit" value="Enviar instrucciones")
+                    input(class="w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-3 cursor-pointer" type="submit" value="Guardar contraseña")
