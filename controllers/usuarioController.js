@@ -12,9 +12,6 @@ const formularioLogin = (req, res) => {
 }
 
 const autenticar = async (req, res) => {
-
-    console.log('-- Autenticar usuario -- ');
-
     await check('email').isEmail().withMessage("El email es obligatorio.").run(req);
     await check('password').notEmpty().withMessage("La contraseña es obligatoria.").run(req);
 
@@ -72,9 +69,6 @@ const autenticar = async (req, res) => {
 }
 
 const formularioRegistro = (req, res) => {
-
-    console.log('-- Formulario regitro -- ');
-
     res.render('auth/registro', {
         pagina: 'Crear cuenta',
         csrfToken: req.csrfToken()
@@ -83,9 +77,6 @@ const formularioRegistro = (req, res) => {
 
 const registrar = async (req, res) => {
     const { body } = req; // extract user data from the request body
-
-    console.log('-- Registrar usuario -- ');
-
     //Validación
     await check('nombre').notEmpty().withMessage("Debes rellenar el campo.").run(req);
     await check('email').isEmail().withMessage("El email no es válido.").run(req);
@@ -111,8 +102,6 @@ const registrar = async (req, res) => {
             csrfToken: req.csrfToken()
         })
     }
-
-    console.log('emailUsuario:', emailUsuario);
 
     //Verificamos el usuario para no duplicarlo
     const existeUsuario = await Usuario.findOne({ where: { email: emailUsuario } });
@@ -141,15 +130,10 @@ const registrar = async (req, res) => {
         })
 
     }
-
-    console.log("OK FIN Registro Usuario");
 }
 
 const confirmar = async (req, res) => {
     const { token } = req.params;
-
-    console.log('-- Confirmar usuario -- ');
-
     //validamos token
     const usuario = await Usuario.findOne({ where: { token } })
     if (!usuario) {
@@ -223,9 +207,6 @@ const resetContrasena = async (req, res) => {
 }
 
 const comprobarToken = async (req, res) => {
-
-    console.log('-- Comprobar token -- ');
-
     const {token} = req.params;
     const usuario = await Usuario.findOne({where: {token}})
     if(!usuario){
